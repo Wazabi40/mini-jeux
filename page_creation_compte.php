@@ -22,7 +22,7 @@
 
         <label>
             <small>
-                vous avez déjà un compte ? <a href = "page_connection.php" >connectez-vous ! </a>
+                vous avez déjà un compte ? <a href = "page_connexion.php" >connectez-vous ! </a>
             </small>
 
         </label>

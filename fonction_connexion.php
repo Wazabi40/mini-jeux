@@ -1,17 +1,22 @@
 <?php
   
+<<<<<<< HEAD
     session_start();
     
     
+
     if (empty($_POST["login"]) || empty($_POST["pwd"]))
 	{
 		print("<script>
 			     alert('Erreur. Certains champs du formulaire non remplis.');
+
 			     window.location.replace('./page_connexion.php');
+
 			 </script>");
 	}
 	else
 	{
+
         $login = $_POST["login"];
 		$pwd = $_POST["pwd"];
         $json = file_get_contents("login.json");
@@ -49,6 +54,7 @@
     $jsonDecode = json_decode($json,true);
     
  
+
     //var_dump($jsonDecode);
     
 
