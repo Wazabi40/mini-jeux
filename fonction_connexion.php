@@ -1,6 +1,5 @@
 <?php
-  
-<<<<<<< HEAD
+
     session_start();
     
     
@@ -20,6 +19,7 @@
         $login = $_POST["login"];
 		$pwd = $_POST["pwd"];
         $json = file_get_contents("login.json");
+         $jsonDecode = json_decode($json,true);
         
         $i=0;
         while( $i < count($jsonDecode['user']))
@@ -46,12 +46,16 @@
             $i++;
            
         }
+          print("<script>
+                    alert('login Incorect.');
+                    window.location.replace('./page_connexion.php');
+                </script>");
 		
 	}
 
 
 
-    $jsonDecode = json_decode($json,true);
+   
     
  
 
