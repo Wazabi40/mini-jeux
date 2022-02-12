@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link rel = "stylesheet" href = "./css/style.css"/>
         <title>Mini jeux</title>
         <meta charset = "UTF-8">
         <name="viewport" content="width=device.width, initial-scale=1.0">
