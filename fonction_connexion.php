@@ -1,30 +1,54 @@
 <?php
   
-   /* session_start();
-
+    session_start();
+    
+    
     if (empty($_POST["login"]) || empty($_POST["pwd"]))
 	{
 		print("<script>
 			     alert('Erreur. Certains champs du formulaire non remplis.');
-			     window.location.replace('./page_login.php');
+			     window.location.replace('./page_connexion.php');
 			 </script>");
 	}
 	else
 	{
-		$login = $_POST["login"];
+        $login = $_POST["login"];
 		$pwd = $_POST["pwd"];
-	}*/
+        $json = file_get_contents("login.json");
+        
+        $i=0;
+        while( $i < count($jsonDecode['user']))
+        {
+            if($jsonDecode['user'][$i]['login'] == $login)
+            {
+            
+                if($jsonDecode['user'][$i]['pwd'] == $pwd)
+                {
+                    $_SESSION['login'] = $login;
+                    $_SESSION['pwd'] = $pwd;
+                    print("<script>
+                        window.location.replace('./choixDuJeu.php');
+                    </script>");
+                }else
+                {
+                    print("<script>
+                        alert('mot de passe incorect.');
+                        window.location.replace('./page_connexion.php');
+                    </script>");
+                }
+                
+            }
+            $i++;
+           
+        }
+		
+	}
 
 
-    $json = file_get_contents("login.json");
 
     $jsonDecode = json_decode($json,true);
     
-    for($i=0 ; $i < count($jsonDecode['user']) ; $i++){
-        echo $jsonDecode['user'][$i]['nom']."<br>";
-        echo $jsonDecode['user'][$i]['mail']."<br>";
-        echo $jsonDecode['user'][$i]['login']."<br><br><br>";
-    }
+ 
     //var_dump($jsonDecode);
     
 
